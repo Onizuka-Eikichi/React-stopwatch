@@ -7,7 +7,8 @@ export default class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      number: 0
+      number: 0,
+      btnName: 'Start'
     };
     this.timer = null;
     this.start = this.start.bind(this);
@@ -16,21 +17,36 @@ export default class App extends Component{
   }
 
   start(){
+    let state = this.state;
 
     if(this.timer !== null){
       clearInterval(this.timer);
       this.timer = null;
+      state.btnName = 'Start';
+      
 
     }else{
       this.timer = setInterval(()=>{
-      let state = this.state;
       state.number += 0.01;
       this.setState(state);
-    },10);}
-    
+    },10);
+    state.btnName = 'Pause';
+  }
+    this.setState(state);
   }
 
-  clear(){}
+  clear(){
+    let state = this.state;
+
+    if(this.timer !== null){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+
+    state.number = 0;
+    state.btnName = 'Start';
+    this.setState(state);
+}
 
 
   render(){
@@ -42,7 +58,7 @@ export default class App extends Component{
           <span className="timer">{this.state.number.toFixed(2)}</span>
 
             <div className="areaBtn">
-                <span className="btn" onClick={this.start}>Start</span>
+                <span className="btn" onClick={this.start}>{this.state.btnName}</span>
                 <span className="btn" onClick={this.clear}>Clear</span>
             </div>
       </div>
