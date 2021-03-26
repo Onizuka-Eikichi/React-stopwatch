@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+img {
+    width: 350px;
+    height: 350px;
+    margin-top: 100px;
+}
+
+.timer{
+    margin-top: -205px;
+    font-size: 90px;
+}
+
+.areaBtn{
+    margin-top: 120px;
+    display: flex;
+    
+}
+
+.btn{
+    width: 150px;
+    background-color: azure;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+}
+
+.btn:hover{
+    opacity: 0.6;
+    color:#000;
+    transition: all 0.5s;
+}
